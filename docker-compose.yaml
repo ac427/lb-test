@@ -1,0 +1,22 @@
+version: '3'
+services:
+  server1:
+    image: anantac/bottle
+    ports:
+      - "9001:5000"
+    environment:
+      - GET_HOSTS_FROM=dns
+  server2:
+    image: anantac/bottle
+    ports:
+      - "9002:5000"
+    environment:
+      - GET_HOSTS_FROM=dns
+  lb:
+    image: anantac/lb
+    ports:
+      - "80:80"
+    environment:
+      - GET_HOSTS_FROM=dns
+    extra_hosts:
+      - "foo.local:127.0.0.1"
