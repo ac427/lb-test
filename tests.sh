@@ -1,5 +1,9 @@
 set -e
 
+#install dep
+
+pip3 install --user pylint
+
 pylint ./web/server.py
 docker build -t anantac/lb ./lb || travis_terminate 1
 docker build -t anantac/bottle ./web || travis_terminate 1
