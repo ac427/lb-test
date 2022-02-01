@@ -27,6 +27,8 @@ http://nginx.org/en/docs/http/ngx_http_upstream_hc_module.html
 
 # How to run
 
+github actions scripts to verify the [ app ]( https://github.com/ac427/lb-test/blob/main/tests.sh#L8#L10)
+
 Bring all the containers up using docker-compose
 
 ```
