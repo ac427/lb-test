@@ -1,7 +1,7 @@
 # Simple Nginx Load Balancer
 
 ## Prerequisite
-  Have host with docker and docker-compose installed and access to Internet
+  Have host with docker and docker-compose installed and access to Internet ( If you want to pull images from docker hub instead of building using the Dockerfiles)
 
 ## Setup 
 The docker-compose.yaml has 3 servers, 2 web and 1 load balancer defined.
