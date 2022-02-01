@@ -1,32 +1,33 @@
 # Simple Nginx Load Balancer
 
-The docker-compose.yaml has 3 servers, 2 web and 1 load balancer
+## Prerequisite
+  Have host with docker and docker-compose installed and access to Internet
 
+## Setup 
+The docker-compose.yaml has 3 servers, 2 web and 1 load balancer defined.
 The web apps run a simple python bottle app that has two routes
   - /hello ; returns Hello + hostname
   - /ping; returns 200 status
 
 
+## Health checks
+NGIX health checks are not available in free version :roll_eyes:
 
-
-# Health checks
-NGIX health checks are not available in free version :( 
 http://nginx.org/en/docs/http/ngx_http_upstream_hc_module.html
 
 
-# Bottle app return codes
-  Nginx forwards the return code from the bottle app. This can be customized if we want to send custom responses.
-  
-  200 - on valid route
-  404 - when there is no route
-  5xx - when the app fails to respond to route. Hard to reproduce
+# Default Bottle app return codes. 
 
-# Pre req
-  Have host with docker and docker-compose installed and access to Internet
+  Nginx forwards the return code from the bottle app. This can be customized if we want to send custom responses.
+  - 200 - on valid route
+  - 404 - when there is no route
+  - 503 - when the app fails to respond to route. Hard to reproduce
+  
+  We can also customize the responses and send a different return codes depending on route logic/action
 
 # How to run
 
-Bring all the containers using docker-compose
+Bring all the containers up using docker-compose
 
 ```
 [abc@foo 15:48:32 - new_relic]$docker-compose up
@@ -90,7 +91,7 @@ Test route
 Hello World! from 8b75a0fa01f4
 [abc@foo 15:51:09 - new_relic]$curl http://localhost/hello
 Hello World! from 6e01909dd278
-
+```
 Test healthcheck end point
 
 ```
