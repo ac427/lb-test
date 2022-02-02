@@ -61,8 +61,6 @@ lb_1       | 2022/02/01 20:48:35 [notice] 1#1: start worker process 37
 lb_1       | 2022/02/01 20:48:35 [notice] 1#1: start worker process 38
 ```
 
-```
-
 # Test/Verify
 
 In a new shell, check the running containers
