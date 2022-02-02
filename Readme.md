@@ -61,20 +61,11 @@ lb_1       | 2022/02/01 20:48:35 [notice] 1#1: start worker process 37
 lb_1       | 2022/02/01 20:48:35 [notice] 1#1: start worker process 38
 ```
 
-In a new shell verify the images/ports. docker compose logs will also failures if something goes wrong.
-
-```
-[abc@foo 15:49:44 - new_relic]$docker ps
-CONTAINER ID   IMAGE            COMMAND                  CREATED              STATUS              PORTS                                       NAMES
-7730a19a7a4a   anantac/lb       "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, :::80->80/tcp           new_relic_lb_1
-8b75a0fa01f4   anantac/bottle   "/home/app/server.py"    About an hour ago    Up About a minute   0.0.0.0:9001->5000/tcp, :::9001->5000/tcp   new_relic_server1_1
-6e01909dd278   anantac/bottle   "/home/app/server.py"    About an hour ago    Up About a minute   0.0.0.0:9002->5000/tcp, :::9002->5000/tcp   new_relic_server2_1
-[abc@foo 15:49:46 - new_relic]$
 ```
 
 # Test/Verify
 
-check the running containers
+In a new shell, check the running containers
 
 ```
 
@@ -159,7 +150,7 @@ Hello World! from 6e01909dd278
 Kill the second container
 
 ```
-Hello World! from 6e01909dd278[abc@foo 15:54:07 - new_relic]$docker stop 6e01909dd278
+[abc@foo 15:54:07 - new_relic]$docker stop 6e01909dd278
 6e01909dd278
 ```
 
